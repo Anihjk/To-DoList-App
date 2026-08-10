@@ -20,9 +20,11 @@ addButton.addEventListener("click",function () {
        li.innerHTML = `
           <input type="checkbox"
          class="task-checkbox">
-          <span>${taskText}</span>
+          <span class= "task-text">${taskText}</span>
           <button
      class="delete-button">Delete</button>
+          <button
+      class="edit-button">Edit</button>
      `;
    
          tasklist.appendChild(li);
@@ -39,6 +41,20 @@ addButton.addEventListener("click",function () {
      });
 
 
+       const editButton =
+   li.querySelector(".edit-button");
+
+   editButton.addEventListener("click", function() {
+      const newTask = prompt("Edit your task:", taskTextElement.textContent);
+      
+      if (newTask !== null &&
+   newTask.trim() !== "")  {
+          taskTextElement.textContent =
+   newTask.trim();
+   } 
+   });
+
+
          const deleteButton =
     li.querySelector(".delete-button");
 
@@ -48,3 +64,4 @@ addButton.addEventListener("click",function () {
          });
       });
 
+       
